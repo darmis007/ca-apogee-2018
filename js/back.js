@@ -1,5 +1,5 @@
-var baseUrl = "https://bits-apogee.org/2021/collegeambassador";
-var baseUrl1 = "https://www.bits-apogee.org/2021/collegeambassador";
+var baseUrl = "https://bits-apogee.org/collegeambassador";
+var baseUrl1 = "https://www.bits-apogee.org/collegeambassador";
 
 var getCollegeUrl = baseUrl + "/college";
 var getCollegeUrl1 = baseUrl1 + "/college";
@@ -58,6 +58,11 @@ function onSubmitRegister() {
   var yearOfStudy = document.getElementById("regform-yearofstudy").value;
   //var fieldOfStudy = document.getElementById('regform-fieldofstudy').value;
   var mobile = document.getElementById("regform-mobile").value;
+  var source = document.getElementById("regform-sourceselect").value;
+  if (source==="others") {
+    source=document.getElementById("regform-other-source").value;
+  }
+
   //var goodCand = document.getElementById('regform-goodcand').value;
   //var pastExp = document.getElementById('regform-pastexp').value;
   //var hasMailingList = document.getElementById('regform-boolmailinglist').value === "Yes" ? true : false;
@@ -79,6 +84,7 @@ function onSubmitRegister() {
     //list: hasMailingList,
     city: city,
     college: college,
+    info_source:source
   };
 
   fetch(registerUrl, {
